@@ -20,24 +20,34 @@ The goal is not to ship another chat wrapper. The goal is to make DeepSeek feel 
 ---
 
 <p align="center">
-  <img src="src/asset/img/code.gif" alt="Code mode demo" width="49%" style="max-width: 100%;">
-  <img src="src/asset/img/write.gif" alt="Write mode demo" width="49%" style="max-width: 100%;">
+  <video autoplay loop muted playsinline style="width: 49%; max-width: 100%;">
+    <source src="src/asset/img/code.mp4" type="video/mp4">
+  </video>
+  <video autoplay loop muted playsinline style="width: 49%; max-width: 100%;">
+    <source src="src/asset/img/write.mp4" type="video/mp4">
+  </video>
 </p>
 
 ## More Demos
 
 <p align="center">
-  <img src="src/asset/img/feishu.gif" alt="Feishu connection demo" width="860">
+  <video autoplay loop muted playsinline style="width: 860px; max-width: 100%;">
+    <source src="src/asset/img/feishu.mp4" type="video/mp4">
+  </video>
 </p>
 <p align="center"><em>Feishu / Lark / WeChat connection demo.</em></p>
 
 <p align="center">
-  <img src="src/asset/img/sdd.gif" alt="Requirement drafting and planning demo" width="860">
+  <video autoplay loop muted playsinline style="width: 860px; max-width: 100%;">
+    <source src="src/asset/img/sdd.mp4" type="video/mp4">
+  </video>
 </p>
 <p align="center"><em>Requirement drafting and planning demo.</em></p>
 
 <p align="center">
-  <img src="src/asset/img/web.gif" alt="Web tools demo" width="860">
+  <video autoplay loop muted playsinline style="width: 860px; max-width: 100%;">
+    <source src="src/asset/img/web.mp4" type="video/mp4">
+  </video>
 </p>
 <p align="center"><em>Web tools demo.</em></p>
 

@@ -20,24 +20,34 @@ DeepSeek GUI 是一个面向开发者和高频 AI 工作者的本地桌面工作
 ---
 
 <p align="center">
-  <img src="src/asset/img/code.gif" alt="Code 模式演示" width="49%" style="max-width: 100%;">
-  <img src="src/asset/img/write.gif" alt="Write 模式演示" width="49%" style="max-width: 100%;">
+  <video autoplay loop muted playsinline style="width: 49%; max-width: 100%;">
+    <source src="src/asset/img/code.mp4" type="video/mp4">
+  </video>
+  <video autoplay loop muted playsinline style="width: 49%; max-width: 100%;">
+    <source src="src/asset/img/write.mp4" type="video/mp4">
+  </video>
 </p>
 
 ## 更多演示
 
 <p align="center">
-  <img src="src/asset/img/feishu.gif" alt="飞书连接演示" width="860">
+  <video autoplay loop muted playsinline style="width: 860px; max-width: 100%;">
+    <source src="src/asset/img/feishu.mp4" type="video/mp4">
+  </video>
 </p>
 <p align="center"><em>飞书 / Lark / 微信连接演示。</em></p>
 
 <p align="center">
-  <img src="src/asset/img/sdd.gif" alt="新建需求与计划演示" width="860">
+  <video autoplay loop muted playsinline style="width: 860px; max-width: 100%;">
+    <source src="src/asset/img/sdd.mp4" type="video/mp4">
+  </video>
 </p>
 <p align="center"><em>新建需求与计划演示。</em></p>
 
 <p align="center">
-  <img src="src/asset/img/web.gif" alt="Web 工具演示" width="860">
+  <video autoplay loop muted playsinline style="width: 860px; max-width: 100%;">
+    <source src="src/asset/img/web.mp4" type="video/mp4">
+  </video>
 </p>
 <p align="center"><em>Web 工具演示。</em></p>
 
