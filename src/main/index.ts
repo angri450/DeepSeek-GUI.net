@@ -7,7 +7,8 @@ import {
   devServerHintUrl
 } from './settings-store'
 import deepseekLogoPng from '../asset/img/deepseek.png?url'
-import { createAppIcon } from './app-icon'
+import deepseekTrayPng from '../asset/img/deepseek_gui_tray.png?url'
+import { createAppIcon, pickTrayIcon } from './app-icon'
 import { configureAppIdentity } from './app-identity'
 import {
   applyKunRuntimePatch,
@@ -265,6 +266,7 @@ function installDevPreviewWebviewGuards(): void {
 
 
 const appIcon = createAppIcon(deepseekLogoPng)
+const trayIcon = createAppIcon(deepseekTrayPng)
 traceStartup('app icon loaded', { source: deepseekLogoPng.startsWith('data:') ? 'data-url' : 'path' })
 const gotSingleInstanceLock = runningClawScheduleMcpServer || app.requestSingleInstanceLock()
 traceStartup('single instance lock checked', {
@@ -335,7 +337,10 @@ function syncTray(settings: AppSettingsV1): void {
   }
 
   if (!tray) {
-    tray = new Tray(appIcon.isEmpty() ? nativeImage.createEmpty() : appIcon)
+    // Tray 优先用专门的托盘图(在 16x16/24x24 任务栏尺寸下更清晰的剪影);
+    // 托盘图加载失败时回退到主应用图,这样不会看到 electron 默认占位。
+    const traySource = pickTrayIcon(trayIcon, appIcon)
+    tray = new Tray(traySource.isEmpty() ? nativeImage.createEmpty() : traySource)
     tray.on('click', revealMainWindow)
     tray.on('double-click', revealMainWindow)
   }

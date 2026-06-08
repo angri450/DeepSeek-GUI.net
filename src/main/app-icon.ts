@@ -62,3 +62,21 @@ export function createAppIcon(source: string): Electron.NativeImage {
     return nativeImage.createEmpty()
   }
 }
+
+/**
+ * 给 Tray 选图。优先用专为托盘优化的 primary 图(通常是更小、更简化的
+ * 剪影,在 16x16 / 24x24 任务栏尺寸下也清晰);primary 加载失败时回退到
+ * 主应用图标,这样即使托盘专用图丢了也不至于看到 electron 默认占位。
+ *
+ * 单独抽出来是因为:
+ *   - 行为是"两输入一输出"的纯函数,可以在测试里直接喂假 NativeImage
+ *     验证,不用真的把 Tray 拉起来
+ *   - 名字 `pickTrayIcon` 比 `trayIcon.isEmpty() ? appIcon : trayIcon` 这种
+ *     内联三元更能表达"我优先用托盘专用图"的意图
+ */
+export function pickTrayIcon(
+  primary: Electron.NativeImage,
+  fallback: Electron.NativeImage
+): Electron.NativeImage {
+  return primary.isEmpty() ? fallback : primary
+}

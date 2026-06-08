@@ -125,4 +125,31 @@ describe('app icon loader', () => {
       expect(icon).toBeDefined()
     })
   })
+
+  describe('pickTrayIcon', () => {
+    function fakeImage(empty: boolean): Electron.NativeImage {
+      return { isEmpty: () => empty } as unknown as Electron.NativeImage
+    }
+
+    it('returns the primary (tray) icon when both are non-empty', () => {
+      const tray = fakeImage(false)
+      const main = fakeImage(false)
+      expect(mod.pickTrayIcon(tray, main)).toBe(tray)
+    })
+
+    it('falls back to the main app icon when the tray icon is empty', () => {
+      const tray = fakeImage(true)
+      const main = fakeImage(false)
+      expect(mod.pickTrayIcon(tray, main)).toBe(main)
+    })
+
+    it('returns the fallback when both are empty — the function does not silently promote primary', () => {
+      // 两个都空时返回 fallback —— 行为简单可预测;"返回 primary 还是
+      // fallback"功能上等价(都是空),但保持"primary 空就用 fallback"
+      // 这条规则不破例,调用方更清楚在拿什么。
+      const tray = fakeImage(true)
+      const main = fakeImage(true)
+      expect(mod.pickTrayIcon(tray, main)).toBe(main)
+    })
+  })
 })
